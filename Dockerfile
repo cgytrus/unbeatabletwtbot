@@ -1,6 +1,5 @@
 FROM node:25-alpine AS base
 ENV NODE_ENV=production
-RUN corepack enable
 
 FROM base AS build
 COPY . /usr/src/app
