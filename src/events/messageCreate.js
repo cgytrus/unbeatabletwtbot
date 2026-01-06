@@ -28,7 +28,11 @@ module.exports = async (message) => {
             await message.react('❌');
         }
         return; 
-    }
+    };
+
+    if (message.content.startsWith('!kiss') && message.author.id === process.env.KISSER_USER_ID) {
+        await message.reply('*kisses you*');
+    };
 
     // takes the content of all messages and makes it lowercase too because we never know (we always know)
     const content = message.content;
@@ -36,7 +40,7 @@ module.exports = async (message) => {
     
     // Count for Hazel cuz she goth badding too much
     const gothBaddieIHateYouHazel = ['goth baddie', 'gothie', 'woman in goth'];
-    if (message.author.id === process.env.HAZEL_USER_ID && gothBaddieIHateYouHazel.some(key => lowerContent.includes(key))) {
+    if (message.author.id === '378253524938784769' && gothBaddieIHateYouHazel.some(key => lowerContent.includes(key))) {
         const newCount = updateCounter(message.author.id);
         return triggerResponse(message, `thats the ${newCount} time you've said goth baddie / gothie.`);
     }
@@ -46,7 +50,8 @@ module.exports = async (message) => {
         'quave?r?in it': '# im straight up quavin it!!!!!!!!',
         "you'?re? doing? the" : "same shit",
         'peak': 'divide',
-        'jail': 'Prison.'
+        'jail': 'Prison.',
+        'clanker' : 'FUCK YOU !!!'
     };
 
     // takes the const and make it an array and also make it regex (i hate regex please never use regex)
