@@ -4,7 +4,6 @@ const { updateCounter } = require('../utils/counterHandler');
 
 module.exports = async (message) => {
     if (message.author.bot) return;
-    if (message.system) return;
     if (message.channel.id === "1450982292167327869" ) return;
 
     // message logic for me to fuck up with people
@@ -36,7 +35,6 @@ module.exports = async (message) => {
     const content = message.content;
     const lowerContent = content.toLowerCase();
     
-    // becca deserves loves, it will kiss my daughter. I give it my thumbs up (gladiator rules baby)
     if (message.content.startsWith('!kiss') && message.author.id === process.env.KISSER_USER_ID) {
         await message.reply('*kisses you*');
     };
@@ -108,9 +106,8 @@ module.exports = async (message) => {
     };
 
     // good morning, its afternoon
-    const goodMoriningSunshine = /^((gm)|(goo+d\s?morning?)|(mo+rning?))/i;
+    const goodMoriningSunshine = /^((goo+d\s?morning?)|(mo+rning?))/i;
     if (goodMoriningSunshine.test(content)) return triggerResponse(message, "It's afternoon");
-
 
     // regex hell (un-able | bata bada | quaver swears yaddayadda)
     const pattern = /(\bUNBEATABLE\b)|(\b(ba[td]a)+\b)|(\bfucking\s?tired?)|(\bhammers?)/gi;
