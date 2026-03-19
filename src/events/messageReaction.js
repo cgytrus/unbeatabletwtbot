@@ -187,7 +187,7 @@ module.exports = async (reaction) => {
       }
 
       // then it send its shit
-      await shameChannel.send({
+      await beeChannel.send({
         content: `🐝 | ${message.url}`,
         embeds: [beeEmbed],
       });
